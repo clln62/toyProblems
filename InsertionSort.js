@@ -33,9 +33,9 @@ function insertionSort (array) {
  for (let j = 0; j < array.length; j++) {
     // loop through array again at one element after array[j]
     for (let i = j + 1; i < array.length; i++) {
-        // if element value is less than next value
+        // if array[j] value is less than next value
         if (array[j].value > array[i].value) {
-            // save element
+            // save array[j]
             let holder = array[j];
             // swap placements
             array[j] = array[i];
