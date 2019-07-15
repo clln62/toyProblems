@@ -64,7 +64,7 @@ function romanNumerals (numeral) {
             // subtract first value from second and return
             holder+= DIGIT_VALUES[numeral[i]] - DIGIT_VALUES[numeral[i - 1]];
         // else if current element is greater than or equal to next element 
-        } else if (DIGIT_VALUES[numeral[i]] >= DIGIT_VALUES[numeral[i + 1]]){
+        } else if (DIGIT_VALUES[numeral[i]] >= DIGIT_VALUES[numeral[i + 1]] || numeral[i + 1] === undefined){
             //add each value to sum holder
             holder += DIGIT_VALUES[numeral[i]];
         }
@@ -79,5 +79,6 @@ function romanNumerals (numeral) {
 console.log(romanNumerals('MMXIX')) // => 2019
 console.log(romanNumerals('CCCXIX')) // => 319
 console.log(romanNumerals('MMMCDXXIV')) // => 3424
-
+console.log(romanNumerals('LX')) //=>60
+console.log(romanNumerals('IV')) //=> 4
 
