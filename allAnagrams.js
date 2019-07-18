@@ -29,7 +29,8 @@ function allAnagrams (string) {
         }
     }
     // create an endpoint
-    let endNum = string.length * 2;
+    let stringLength = string.length;
+    let endNum = stringLength * (stringLength - 1);
     // while count is less than endpoint
     while (count !== endNum) {
         // call helper function
