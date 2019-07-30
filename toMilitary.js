@@ -54,6 +54,7 @@ function toMilitary (time) {
     // return time
     return time;
   }
+  if (time)
   let colon = ':';
   let arr = time.split(':')
   if (arr[0] < 10 && arr[1][2] === 'a') {
