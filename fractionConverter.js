@@ -11,6 +11,8 @@ output: "1/2", "3/1", "5/2", "11/4" */
 
 /* Proper to inproper: https://www.calculatorsoup.com/calculators/math/mixed-number-to-improper-fraction.php */
 
+/* Greatest Common Diviser: https://en.wikipedia.org/wiki/Greatest_common_divisor */
+
 function fractionConverter (number) {
     // convert number to a string
     let stringNumber = number.toString();
@@ -80,7 +82,7 @@ function fractionConverter (number) {
         }
     }
     // in example, at this point, whole should be [2], top should be [75], and bottom should be [100]
-    // next we need to look at top and bottom to find out if they can be rounded down
+    // next we need to look at top and bottom to find the greatest common divisor
     // then we can create the calculations of converting from proper to improper fraction
 
 
