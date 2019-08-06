@@ -3,42 +3,27 @@
 // A word must be at least two letters long.
 
 function nestedWordCount(wordList) {
-    // create an empty object
     let holder = {};
-    // create a helper function that takes in a string word
     const helper = (string) => {
-        // create a count set to 0
         let count = 0;
-        // loop through wordList array
         for (let i = 0; i < wordList.length; i++) {
-            // if string word includes word from array and is not the same word
             if (string.includes(wordList[i]) && wordList[i] !== string){
-                // increment count
                 count++;
             }
-            // if i is equal to length of array
             if (i + 1 === wordList.length) {
-                // set key, value pair in object with word and count
                 holder[string] = count;
             }
         }
     }
-    // loop through wordList
     for (let j = 0; j < wordList.length; j++) {
-        // call helper function on each word
         helper(wordList[j]);
     }
-    // create a result array with string and 0
     let result = ["", 0];
-    // loop through object 
     for (let key in holder) {
-        // if value to key is greater than value in result array
         if (holder[key] > result[1]) {
-            // replace information
             result = [key, holder[key]];
         }
     }
-    // return first index in result array
     return result[0];
 };
 
