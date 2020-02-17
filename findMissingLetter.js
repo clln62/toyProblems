@@ -19,12 +19,13 @@ https://www.codewars.com/kata/5839edaa6754d6fec10000a2
 function findMissingLetter(array) {
   let myStr = 'abcdefghijklmnopqrstuvwxyz';
   let str = '';
+  let truth = false;
   if (array[0] === array[0].toUpperCase()) {
     myStr = myStr.toUpperCase();
   } 
   for (let i = 0; i < myStr.length; i++) {
     if (myStr[i] === array[0]) {
-      let truth = true;
+      truth = true;
     }
     if (truth) {
       str = str.concat(myStr[i])
