@@ -26,5 +26,50 @@ titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 
 
 function titleCase(title, minorWords) {
+
+    let result = '';
+    
+    if (title.length === 0) {
+        return result;
+    } else if (title.split(' ').length === 1) {
+      return title.charAt(0).toUpperCase() + title.slice(1);
+    }
+
+    title = title.toLowerCase();
+    
+    if (minorWords !== undefined) {
+      minorWords = minorWords.toLowerCase();
+    } else {
+      minorWords = '';
+    }
+    let lowerCaseArray = minorWords.split(' ');
+    let titleArray = title.split(' ');
+
+    let minorWordsObject = {};
+
+    function breakup (array) {
+        for (let i = 0; i < array.length; i++) {
+            if (array === lowerCaseArray) {
+                minorWordsObject[array[i]] = array[i];
+            }
+            if (array === titleArray) {
+                let word = array[i];
+                if (i === 0 || !minorWordsObject[word] && i !== array.length-1) {
+                    result = result.concat(word.charAt(0).toUpperCase() + word.slice(1) + ' ');
+                } else if (i === array.length-1 && !minorWordsObject[word]) {
+                    result = result.concat(word.charAt(0).toUpperCase() + word.slice(1));
+                } else if (i === array.length-1 && minorWordsObject[word]) {
+                    result = result.concat(word);
+                } else {
+                    result = result.concat(word + ' ');
+                }
+            }
+        }
+    }
+
+    breakup(lowerCaseArray);
+    breakup(titleArray);
+
+    return result;
   
 }
