@@ -41,30 +41,28 @@ Stack.prototype.size = function () {
 
 
 
+// Pseudoclassical
 
+var Stack = function ( ) {
+    this.storage = {};
+    this.count = 0;
+}
 
-// // Pseudoclassical
+Stack.prototype.push = function (value) {
+    this.storage[this.count++] = value;
 
-// var Stack = function ( ) {
-//     this.storage = {};
-//     this.count = 0;
-// }
+}
 
-// Stack.prototype.push = function (value) {
-//     this.storage[this.count++] = value;
+Stack.prototype.pop = function ( ) {
+    var itemToBePopped = this.storage[this.count-1];
 
-// }
+    if (this.count > 0) {
+        delete this.storage[--this.count];
+    }
 
-// Stack.prototype.pop = function ( ) {
-//     var itemToBePopped = this.storage[this.count-1];
+    return itemToBePopped;
+}
 
-//     if (this.count > 0) {
-//         delete this.storage[--this.count];
-//     }
-
-//     return itemToBePopped;
-// }
-
-// Stack.prototype.size = function ( ) {
-//     return this.count;
-// }
+Stack.prototype.size = function ( ) {
+    return this.count;
+}
