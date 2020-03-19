@@ -11,40 +11,29 @@
  */
 
 var commonCharacters = function(string1, string2) {
-  // create an object holder
   let holder = {};
-  // create a string result
   let result = "";
-  // create a helper function that takes in a string
+  
   const helper = function(str) {
-    // loop through the string
     for (let i = 0; i < str.length; i++) {
-      // if element is not in object
       if (!holder[str[i]] && str == string1) {
-        // place in object with value of false
         holder[str[i]] = false;
       }
-      // if element is in object and string is same as string2
       if (holder[str[i]] !== undefined && str === string2) {
-        // change value to true to signify a double case
         holder[str[i]] = true;
       }
-
     }
-
   }
-  // call helper function on both string1 and string2
+  
   helper(string1);
   helper(string2);
-  // loop through object
+  
   for (let key in holder) {
-    // if value is true
     if (holder[key] === true) {
-      // place key into result
       result += key;
     }
   }
-  // return result
+
   return result;
 };
 
