@@ -16,19 +16,14 @@ https://www.codewars.com/kata/5264d2b162488dc400000001/train/javascript
 */
 
 function spinWords(string){
-    // split string into variable array
     const holder = string.split(' ');
     const result = [];
-    // loop through array
     holder.forEach((element) => {
-        // if word length is greater than 4
         if (element.length > 4) {
-            // reverse the word
             result.push(element.split("").reverse().join(""));
         } else {
             result.push(element);
         }
     })
-    // return the joined array as a string
     return result.join(" ");
 }
