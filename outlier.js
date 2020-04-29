@@ -29,3 +29,24 @@ function findOutlier(integers){
         return odds[0];
     }
 }
+
+
+function findOutlier(integers){
+    let oddCount, evenCount = 0;
+    let even, odd;
+    integers.forEach( element => {
+      if (element % 2 === 0) {
+        evenCount++;
+        even = element;
+      } else {
+        oddCount++;
+        odd = element;
+      }
+    })
+    
+    if (evenCount === 1) {
+      return even;
+    } else {
+      return odd;
+    }
+  }
