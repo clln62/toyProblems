@@ -54,16 +54,7 @@ function high(x){
 }
 
 
-
-
-
-
-Test.describe("Example tests",_=>{
-Test.assertEquals(high('man i need a taxi up to ubud'), 'taxi');
-Test.assertEquals(high('what time are we climbing up the volcano'), 'volcano'); 
-Test.assertEquals(high('take me to semynak'), 'semynak');  
-});
-
+// Faster and cleaner solution below.
 
 
 function high(x){
@@ -73,18 +64,9 @@ function high(x){
                         v: 22, w: 23, x: 24, y: 25, z: 26
                     }
 
-    // let holder = {};
     let wordHolder = '';
     let countHolder = 0;
     let result = ['', 0];
-
-    // const helper = (word) => {
-    //     // let count = 0;
-    //     for (let j = 0; j < word.length; j++) {
-    //         count += alphabet[word[j]];
-    //     }
-    //     holder[word] = count;
-    // }
     
     for (let i = 0; i < x.length; i++) {
         if (x[i] !== ' ') {
@@ -92,7 +74,6 @@ function high(x){
             countHolder += alphabet[x[i]];
         }
         if (x[i] === ' ' || i + 1 === x.length) {
-            // helper(wordHolder);
             if (countHolder > result[1]) {
                 result = [wordHolder, countHolder];
             }
@@ -100,11 +81,14 @@ function high(x){
             wordHolder = '';
         }
     }
-    // let output = ['', 0];
-    // for (let key in holder) {
-    //     if (holder[key] > output[1]) {
-    //         output = [key, holder[key]];
-    //     }
-    // }
+
     return result[0];
 }
+
+
+
+Test.describe("Example tests",_=>{
+    Test.assertEquals(high('man i need a taxi up to ubud'), 'taxi');
+    Test.assertEquals(high('what time are we climbing up the volcano'), 'volcano'); 
+    Test.assertEquals(high('take me to semynak'), 'semynak');  
+    });
