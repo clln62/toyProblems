@@ -18,11 +18,15 @@ https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/javascript
 
 
 function high(x){
-    const alphabet = {  a:1, b:2, c:3, d:4, e:5, f:6, g:7, h:8, i:9, j: 10, k: 11, l: 12, 
+    const alphabet = {  
+                        a:1, b:2, c:3, d:4, e:5, f:6, g:7, h:8, i:9, j: 10, k: 11, l: 12, 
                         m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, 
-                        v: 22, w: 23, x: 24, y: 25, z: 26}
+                        v: 22, w: 23, x: 24, y: 25, z: 26
+                    }
+
     let holder = {};
     let wordHolder = '';
+
     const helper = (word) => {
         let count = 0;
         for (let j = 0; j < word.length; j++) {
@@ -30,6 +34,7 @@ function high(x){
         }
         holder[word] = count;
     }
+
     for (let i = 0; i < x.length; i++) {
         if (x[i] !== ' ') {
             wordHolder = wordHolder.concat(x[i]);
@@ -58,3 +63,48 @@ Test.assertEquals(high('man i need a taxi up to ubud'), 'taxi');
 Test.assertEquals(high('what time are we climbing up the volcano'), 'volcano'); 
 Test.assertEquals(high('take me to semynak'), 'semynak');  
 });
+
+
+
+function high(x){
+    const alphabet = {  
+                        a:1, b:2, c:3, d:4, e:5, f:6, g:7, h:8, i:9, j: 10, k: 11, l: 12, 
+                        m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, 
+                        v: 22, w: 23, x: 24, y: 25, z: 26
+                    }
+
+    // let holder = {};
+    let wordHolder = '';
+    let countHolder = 0;
+    let result = ['', 0];
+
+    // const helper = (word) => {
+    //     // let count = 0;
+    //     for (let j = 0; j < word.length; j++) {
+    //         count += alphabet[word[j]];
+    //     }
+    //     holder[word] = count;
+    // }
+    
+    for (let i = 0; i < x.length; i++) {
+        if (x[i] !== ' ') {
+            wordHolder = wordHolder.concat(x[i]);
+            countHolder += alphabet[x[i]];
+        }
+        if (x[i] === ' ' || i + 1 === x.length) {
+            // helper(wordHolder);
+            if (countHolder > result[1]) {
+                result = [wordHolder, countHolder];
+            }
+            countHolder = 0;
+            wordHolder = '';
+        }
+    }
+    // let output = ['', 0];
+    // for (let key in holder) {
+    //     if (holder[key] > output[1]) {
+    //         output = [key, holder[key]];
+    //     }
+    // }
+    return result[0];
+}
