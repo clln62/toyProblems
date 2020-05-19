@@ -33,30 +33,22 @@ https://www.codewars.com/kata/554ca54ffa7d91b236000023/train/javascript
 
 
 function deleteNth(arr, n){
-    // if n is 0 return an empty array
     if (n === 0) return [];
-    // create an output array
-    let output = [];
-    // create a holder object for counts of occurrences 
-    let holder = {};
-    // loop through arr
-    arr.forEach( element => {
-        // if element is not in holder object
-        if (!holder[element]) {
-            // save in object with a value of 1
-            holder[element] = 1;
-            // push element into output
-            output.push(element);
-        // if element is in holder object
-        } else {
-            // increment its value
-            holder[element] += 1;
-            // if value is less than or equal to n
-            // push element into output
-            if (holder[element] <= n) output.push(element);
 
+    let output = [];
+    let holder = {};
+
+    arr.forEach( element => {
+
+        if (!holder[element]) {
+            holder[element] = 1;
+            output.push(element);
+        } else {
+            holder[element] += 1;
+            if (holder[element] <= n) output.push(element);
         }
+
     })
-    // return output
+    
     return output;
 }
