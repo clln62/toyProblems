@@ -26,12 +26,7 @@ https://www.codewars.com/kata/53697be005f803751e0015aa
 
 */
 
-
-
-function encode(string) {
-    const vowels = {
-        a: 1, e: 2, i: 3, o: 4, u: 5
-    }
+const helper = (string, vowels) => {
     let output = "";
 
     for (let i = 0; i < string.length; i++) {
@@ -46,20 +41,19 @@ function encode(string) {
   return output;
 }
 
+
+function encode(string) {
+    const vowels = {
+        a: 1, e: 2, i: 3, o: 4, u: 5
+    }
+    
+    return helper(string, vowels);
+}
+
 function decode(string) {
     const vowels = {
         1: 'a', 2: 'e', 3: 'i', 4: 'o', 5: 'u'
     }
-    let output = "";
 
-    for (let i = 0; i < string.length; i++) {
-        let char = string[i];
-        if (vowels[char]) {
-            output += vowels[char];
-        } else {
-            output += char;
-        }
-    }
-
-  return output;
+    return helper(string, vowels);
 }
